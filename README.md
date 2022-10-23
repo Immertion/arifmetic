@@ -1,4 +1,5 @@
 ---
+title: "My Title"
 output:
   github_document:
     pandoc_args: --webtex
@@ -233,14 +234,11 @@ A x B= InverseDFT(DFT(A) x (DFT(B))
 Основная идея ― разбить сумму на половину слагаемых с четными номерами и половину с нечетными. Построим для них преобразованные последовательности. 
 
 Обозначим указанные последовательности  $ e_0,e_1,...e_M $ и $ E_0,E_1,...E_M $ для четных номеров, $ o_0,o_1,...o_M $ и $ O_0,O_1,...O_M $ ($M = \frac{N}{2} $)
-$$
-{X_{k} = \sum_{n=0}^{N - 1}x_{n}e^{\frac{2pi}{N}kn} = \sum_{m=0}^{\frac{N}{2} - 1} x_{2m}e^{\frac{2pi}{N}k2m} + \sum_{m=0}^{\frac{N}{2} - 1} x_{2m + 1}e^{\frac{2pi}{N}k(2m+ 1)} = \sum_{m=0}^{M - 1} e_{m}e^{\frac{2pi}{M}km} + e^{\frac{2pi}{N}k} * \sum_{m=0}^{M - 1} o_{m}e^{\frac{2pi}{M}km} = }
-$$
-$${\begin{Bmatrix}
- E_{k} + e^{\frac{2pi}{N}k}O_{k}, if (k < M)  \\ 
- E_{k} + M^{\frac{2pi}{N}k}O_{k}, if (k >= M) 
-\end{Bmatrix}}
-$$
+
+![equation](https://latex.codecogs.com/svg.image?{X_{k}&space;=&space;\sum_{n=0}^{N&space;-&space;1}x_{n}e^{\frac{2pi}{N}kn}&space;=&space;\sum_{m=0}^{\frac{N}{2}&space;-&space;1}&space;x_{2m}e^{\frac{2pi}{N}k2m}&space;&plus;&space;\sum_{m=0}^{\frac{N}{2}&space;-&space;1}&space;x_{2m&space;&plus;&space;1}e^{\frac{2pi}{N}k(2m&plus;&space;1)}&space;=&space;\sum_{m=0}^{M&space;-&space;1}&space;e_{m}e^{\frac{2pi}{M}km}&space;&plus;&space;e^{\frac{2pi}{N}k}&space;*&space;\sum_{m=0}^{M&space;-&space;1}&space;o_{m}e^{\frac{2pi}{M}km}&space;=&space;})
+
+![equation](https://latex.codecogs.com/svg.image?\begin{Bmatrix}&space;E_{k}&space;&plus;&space;e^{\frac{2pi}{N}k}O_{k},&space;if&space;(k&space;<&space;M)&space;&space;\\&space;&space;&space;E_{k}&space;&plus;&space;M^{\frac{2pi}{N}k}O_{k},&space;if&space;(k&space;>=&space;M)&space;\end{Bmatrix})
+
 
 ## Подключение к длинной арифметике
 Для умножения двух многочленов нужно представить их в виде своих значений в корнях из 1, перемножить эти значения, а потом восстановить многочлен по значениям. Из показанного выше следует, что это легко сделать тремя преобразованиями Фурье (двумя прямыми и одним обратным). Единственное, где можно ошибиться – это неправильно задать количество точек. Оно должно соответствовать степени не только исходных многочленов, но и степени их произведения.
